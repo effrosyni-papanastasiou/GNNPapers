@@ -1,4 +1,4 @@
-# DiffusionPapersGNNSummary
+# Diffusion Papers GNN Summary
 
 Summaries of Information Diffusion Prediction Papers that use techniques based on Graph Neural Networks (GNNs).
 
