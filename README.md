@@ -6,11 +6,12 @@ Summaries of Information Diffusion Prediction Papers that use techniques based o
 1. **Fully Exploiting Cascade Graphs for Real-time Forwarding Prediction Xiangyun**
 *Xiangyun Tang, Dongliang Liao, Weijie Huang, Liehuang Zhu, Meng Shen, and Jin Xu*. AAAI, 2021, pp.582-590. [paper](https://www.aaai.org/AAAI21Papers/AAAI-5502.TangX.pdf)
 
-- Goal: Popularity prediction Given: a set S = {S1, ..., Sβ } of infection status results observed on a diffusion network G in β historical diffu- sion processes, where Sℓ = (xℓ 1, ..., xℓ n) is a n-dimensional vector that records the final infection status, xℓ i ∈ {0, 1} (0 denotes uninfected, and 1 denotes infected) of each node vi ∈ V observed at the end of the ℓ-th diffusion process (ℓ ∈ {1, . . . , β}). Infer: the unknown edge set E of diffusion network G. In the problem statement, except for the given infection status results S observed on the n nodes of the objective diffusion network G, no other information about infections and the network, such as infection timestamps, initially infected nodes, and the number m of directed edges in the network, is known.(Regression).  Real-time forwarding amount prediction of on-line contents  
+- Goal: Popularity prediction. 
 - Dataset:  
 ** [Weibo Dataset](https://github.com/CaoQi92/DeepHawkes): posts generated on June 1st, 2016, and tracks all re-tweets within the next 24 hours.  <br>
 ** Multimedia Content Dataset: multimedia contents from August 1, 2019 to September 30, 2019 and track all forwarding of each multimedia con- tent within the next 75 hours.
-- Method: novel approach for cascade graph embedding that captures cascade graph features in terms of diffusion, scale and temporal, and includes a short-term variation sen- sitive method for modeling the historical variation of cas- cade graph size
+- Method: novel approach for cascade graph embedding that captures cascade graph features in terms of diffusion, scale and temporal, and includes a short-term variation sen- sitive method for modeling the historical variation of cascade graph size. Attention CNN mechanism that captures short-term variation over time on cascade graph size and merges the local features within a fixed window. Then we employ Long Short Term Meomory (LSTM) over the attention CNN to learn the historical trend. Linear Regression (LR); Gradi-
+ent Boosting Decision Tree (GBDT); CNN and LSTM.
 - Conclusion: time-series modeling and cascade graph embedding are able to complement each other to achieve better prediction results for real-time forwarding prediction.
 
 2. **CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.**
@@ -79,6 +80,7 @@ International Conference on Neural Information Processing (ICONIP), 2020, pp. 10
 WSDM 2020.
 
 ## 2019
+
 1. **Multi-scale Information Diffusion Prediction with Reinforced Recurrent Networks.**
 *Cheng Yang, Jian Tang, Maosong Sun, Ganqu Cui, Zhiyuan Liu.*
 IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
@@ -176,9 +178,8 @@ IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
 
 1. **A sequential neural information diffusion model with structure attention.**
 *Zhitao Wang, Chengyao Chen, and Wenjie Li.*
- CIKM 2018.
+ CIKM 2018.[paper](https://dl.acm.org/doi/10.1145/3269206.3269275)
  
-[paper](https://dl.acm.org/doi/10.1145/3269206.3269275)
 1. **Attention network for information diffusion prediction.**
 *Zhitao Wang, Chengyao Chen, and Wenjie Li.*
  WWW 2018.
