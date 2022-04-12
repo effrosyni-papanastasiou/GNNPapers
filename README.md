@@ -245,11 +245,6 @@ to go back to user u (In our work, we set the restart ratio as
  WWW 2018.
 [paper](https://dl.acm.org/citation.cfm?id=3186931)
 
-1. **Who will share my image? Predicting the content diffusion path in online social networks.**
-*W. Hu, K. K. Singh, F. Xiao, J. Han, C.-N. Chuah, and Y. J. Lee.*
- WSDM 2018.
-[paper](https://arxiv.org/pdf/1705.09275.pdf)
-
 1. **Learning sequential features for cascade outbreak prediction.**
 *Chengcheng Gou, Huawei Shen, Pan Du, Dayong Wu, Yue Liu, Xueqi Cheng.*
  Knowledge and Information System 2018.
@@ -274,25 +269,31 @@ to go back to user u (In our work, we set the restart ratio as
 *Zekarias T. Kefato, Nasrullah Sheikh, Leila Bahri, Amira Soliman, Alberto Montresor, Sarunas Girdzijauskas.*
  SNAMS 2018.
 [paper](https://people.kth.se/~sarunasg/Papers/Kefato2018cas2vec.pdf)
+- Goal: predict whether a cascade is going to become viral or not.
+- Method:  Based on our main premise, intuitively we seek to
+model the initial speed of a cascade (that is, the speed by
+which a cascade starts its spread) or the user reaction times
+at the early stage of the cascade, as well as its momentum.
+As we shall empirically demonstrate in Section IV-A, this is
+a strong signal for potential virality.     
+-    While several attempts towards this end exist, most
+of the current approaches rely on features extracted from the
+underlying network structure over which the content spreads.
+Recent studies have shown, however, that prediction can be
+effectively performed with very little structural information about
+the network, or even with no structural information at all.
+In this study we propose a novel network-agnostic approach
+called CAS2VEC, that models information cascades as time series
+and discretizes them using time slices. For the actual prediction
+task we have adopted a technique from the natural language
+processing community. 
+
 
 1. **A Variational Topological Neural Model for Cascade-based Diffusion in Networks.**
 *Sylvain Lamprier.*
  arXiv 2018.
 [paper](https://arxiv.org/pdf/1812.10962.pdf)
 - Goal:
-
-1. **Joint Modeling of Text and Networks for Cascade Prediction.**
-*Cheng Li, Xiaoxiao Guo, Qiaozhu Mei.*
- ICWSM 2018.
-[paper](https://www.aaai.org/ocs/index.php/ICWSM/ICWSM18/paper/viewFile/17804/17070)
-- Goal:
-
-1. **CRPP: Competing Recurrent Point Process for Modeling Visibility Dynamics in Information Diffusion.**
-*Avirup Saha, Bidisha Samanta, Niloy Ganguly.*
- CIKM 2018.
-[paper](https://dl.acm.org/doi/abs/10.1145/3269206.3271726)
-- Goal:
-
 
 ## 2017
 
@@ -316,7 +317,6 @@ cascade growth. Once we have such a “document” assembled, deep
 learning techniques for text data could be applied in a similar way
 here. W
 - Conclusion: 
-
 
 1. **Topological recurrent neural network for diffusion prediction.**
 *Jia Wang, Vincent W Zheng, ZeminLiu, and Kevin Chen-Chuan Chang.*
