@@ -13,36 +13,23 @@ Graph Autoencoders, Variational Graph Autoencoders
 - Dataset:  
 ** [Weibo Dataset](https://github.com/CaoQi92/DeepHawkes): posts generated on June 1st, 2016, and tracks all re-tweets within the next 24 hours.  <br>
 ** Multimedia Content Dataset: multimedia contents from August 1, 2019 to September 30, 2019 and track all forwarding of each multimedia con- tent within the next 75 hours.
-- Method: novel approach for cascade graph embedding that captures cascade graph features in terms of diffusion, scale and temporal, and includes a short-term variation sen- sitive method for modeling the historical variation of cascade graph size. Attention CNN mechanism that captures short-term variation over time on cascade graph size and merges the local features within a fixed window. Then we employ Long Short Term Meomory (LSTM) over the attention CNN to learn the historical trend. Linear Regression (LR); Gradi-
-ent Boosting Decision Tree (GBDT); CNN and LSTM.
+- Method: embedding of cascade graph features in terms of diffusion, scale and temporal properties. Attention CNN mechanism that captures short-term variation over time on cascade graph size and merges the local features within a fixed window.Long Short Term Meomory (LSTM) over the attention CNN to learn the historical trend. Linear Regression (LR); Gradient Boosting Decision Tree (GBDT); CNN and LSTM.
 - Conclusion: time-series modeling and cascade graph embedding are able to complement each other to achieve better prediction results for real-time forwarding prediction.
 
 1. **Information Cascades Prediction With Graph Attention** Chen Zhihao, Wei Jingjing, Liang Shaobin, Cai Tiecheng, Liao Xiangwen, Frontiers in Physics, VOLUME=9, YEAR=2021, URL=https://www.frontiersin.org/article/10.3389/fphy.2021.739202, DOI=10.3389/fphy.2021.739202
 
-1. **Utilizing the simple graph convolutional
-neural network as a model for simulating
-influence spread in networks**
+1. **Utilizing the simple graph convolutional neural network as a model for simulating influence spread in networks**
 
 ## 2020
 
 1. **Inf-VAE: A Variational Autoencoder Framework to Integrate Homophily and Influence in Diffusion Prediction.**
 *Aravind Sankar, Xinyang Zhang, Adit Krishnan, Jiawei Han.*
 WSDM 2020.[paper](https://arxiv.org/pdf/2001.00132.pdf)
-- Goal: o predict the set of all influenced use
-- Method: Generalizable Variational Autoencoder Framework: Unlike
-existing diffusion prediction methods that only consider local
-induced propagation structures, Inf-VAE is a generalizable VAE
-framework that models social homophily through graph neu-
-ral network architectures of arbitrary complexity, to selectively
-exploit the rich global network of social connections.
-• Efficient Homophily and Influence Integration: To the best
-of our knowledge, ours is the first work to comprehensively
-exploit social homophily and temporal influence in diffusion pre-
-diction. Given a sequence of seed user activations, Inf-VAE em-
-ploys an expressive co-attentive fusion network to jointly attend
-over their social and temporal embeddings to predict the set of
-all influenced users. Inf-VAE with co-attentions is faster than
-state-of-the-art recurrent methods by an order of magnitude
+- Goal: predict the set of all influenced use
+- Method: Unlike existing diffusion prediction methods that only consider local induced propagation structures, Inf-VAE is a generalizable VAE
+framework that models social homophily through graph neural network architectures. First work to comprehensively
+exploit social homophily and temporal influence in diffusion prediction. Given a sequence of seed user activations, Inf-VAE employs an expressive co-attentive fusion network to jointly attend over their social and temporal embeddings to predict the set of
+all influenced users. Inf-VAE with co-attentions is faster than state-of-the-art recurrent methods by an order of magnitude
 
 1. **Information cascades prediction with attention neural network**, Yun Liu, Zemin Bao, Zhenjiang Zhang, Di Tang & Fei Xiong, Human-centric Computing and Information Sciences volume 10, Article number: 13 (2020)
 - Goal:  predicting the increment size of the information cascade based on an end-to-end neural network.
@@ -109,11 +96,6 @@ IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
 1. **DeepFork: Supervised Prediction of Information Diffusion in GitHub.**
 *Ramya Akula, Niloofar Yousefi, Ivan Garibay.*
 [paper](https://arxiv.org/pdf/1910.07999.pdf)
-
-1. **Information Diffusion Prediction via Recurrent Cascades Convolution.**
-*Xueqin Chen, Fan Zhou, Kunpeng Zhang, Goce Trajcevski, Ting Zhong, and Fengli Zhang.*
- IEEE ICDE 2019.
-[paper](https://ieeexplore.ieee.org/abstract/document/8731564)
 
 1. **Deep Learning Approach on Information Diffusion in Heterogeneous Networks.**
 *Soheila Molaei, Hadi Zare, Hadi Veisi.*
