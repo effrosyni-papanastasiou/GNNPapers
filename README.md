@@ -19,16 +19,22 @@ structure and modularity-based prior communities when computing embedding spaces
 - Method: embedding of cascade graph features in terms of diffusion, scale and temporal properties. Attention CNN mechanism that captures short-term variation over time on cascade graph size and merges the local features within a fixed window.Long Short Term Meomory (LSTM) over the attention CNN to learn the historical trend. Linear Regression (LR); Gradient Boosting Decision Tree (GBDT); CNN and LSTM.
 - Conclusion: time-series modeling and cascade graph embedding are able to complement each other to achieve better prediction results for real-time forwarding prediction.
 
-2. **Information Cascades Prediction With Graph Attention** Chen Zhihao, Wei Jingjing, Liang Shaobin, Cai Tiecheng, Liao Xiangwen, Frontiers in Physics, VOLUME=9, YEAR=2021, URL=https://www.frontiersin.org/article/10.3389/fphy.2021.739202, DOI=10.3389/fphy.2021.739202
+2. [IMPORTANT] **Information Cascades Prediction With Graph Attention** Chen Zhihao, Wei Jingjing, Liang Shaobin, Cai Tiecheng, Liao Xiangwen, Frontiers in Physics [paper](https://www.frontiersin.org/article/10.3389/fphy.2021.739202)
 
-3. **Utilizing the simple graph convolutional neural network as a model for simulating influence spread in networks**
+- Goal:  To that end, in this paper, we propose a recurrent neural network model with graph attention mechanism, which constructs a seq2seq framework to learn the spatial-temporal cascade features. Specifically, for user spatial feature, we learn potential relationship among users based on social network through graph attention network. Then, for temporal feature, a recurrent neural network is built to learn their structural context in several different time intervals based on timestamp with a time-decay attention. Finally, we predict the next user with the latest cascade representation which obtained by above method.
+- How: 
+
+3. **Utilizing the simple graph convolutional neural network as a model for simulating influence spread in networks** Alexander V. Mantzaris, Douglas Chiodini & Kyle Ricketson
+
+- Goal: The methodological approach applies the simple graph convolutional neural network in a novel setting. Primarily that it can be used not only for label classification, but also for modeling the spread of the influence of nodes in the neighborhoods based on the length of the walks considered. This is done by noticing a common feature in the formulations in methods that describe information diffusion which rely upon adjacency matrix powers and that of graph neural networks. Examples are provided to demonstrate the ability for this model to aggregate feature information from nodes based on a parameter regulating the range of node influence which can simulate a process of exchanges in a manner which bypasses computationally intensive stochastic simulations.
+- How:
 
 ## 2020
 
 1. **Inf-VAE: A Variational Autoencoder Framework to Integrate Homophily and Influence in Diffusion Prediction.**
 *Aravind Sankar, Xinyang Zhang, Adit Krishnan, Jiawei Han.*
 WSDM 2020.[paper](https://arxiv.org/pdf/2001.00132.pdf)
-- Goal: predict the set of all influenced use
+- Goal: predict the set of all influenced users
 - Method: Unlike existing diffusion prediction methods that only consider local induced propagation structures, Inf-VAE is a generalizable VAE
 framework that models social homophily through graph neural network architectures. First work to comprehensively
 exploit social homophily and temporal influence in diffusion prediction. Given a sequence of seed user activations, Inf-VAE employs an expressive co-attentive fusion network to jointly attend over their social and temporal embeddings to predict the set of
@@ -50,23 +56,6 @@ designed for joint link prediction and community detection, we expect them to 1)
 comparable (or, ideally, identical) AUC/AP link prediction scores w.r.t. standard GAE
 and VGAE, while 2) reaching better community detection scores.
 
-4.1.3. Details on Models
-For the aforementioned evaluation tasks and graphs, we will compare the performances
-of our proposed Modularity-Aware GAE and VGAE models to standard GAE and VGAE
-and to several other baselines. All results reported below will verify d = 16, i.e., all
-node embedding models will learn embedding vectors zi of dimension 16. We also tested
-models with d ∈ {32, 64} by including them in our grid search space and reached similar
-conclusions to the d = 16 setting (we report and further discuss the impact of d in
-Section 4.2. Note, the dimension d is a selectable parameter in our public implementation,
-permitting direct model training on any node embedding dimension).
-Modularity-Aware GAE and VGAE. We trained two versions of our Modularity-Aware
-GAE and VGAE: one with the linear encoder described in Section 3.2.2, and one with the
-2-layer GCN encoder ( GCN(2)). The latter encoder includes a 32-dimensional hidden layer.
-We recall that link prediction is perfof nodes in G. Before we feed the one-hot vector into GRU, we first covert each of them into a low-dimensional dense vector x by a embedding matrix W x ∈ RH ×N : x = Wx q where H is an adjustable dimension of embedding.
-Step 2: feed the sequence into GRU to generate sequential hidden states. We
-adopt the bi-directional GRU where a forward GRU reads the sequence node by node, from left to right, and generates a sequence of forward hidden vectors . Similarly, a backward GRU reads from right to left, node by node and generates a sequence of backward hidden vectors [←− h k i ]. This encoder can be used to simulate the process of information flow during a diffusion. For the i-th node in the sequence, the updated hidden state is computed as the concatenation of the forward and back- ward hidden vectors:  
-step 3: extracting temporal representation.  Similarly, a backward GRU reads from right to left, node by node and generates a sequence of backward hidden vectors [←− h k i ]. This encoder can be used to simulate the process of information flow during a diffusion. For the i-th node in the sequence, the updated hidden state is computed as the concatenation of the forward and back- ward hidden vectors:
-
 1. **Cascade-LSTM: A Tree-Structured Neural Classifier for Detecting Misinformation Cascades.**
 *Francesco Ducci, Mathias Kraus, Stefan Feuerriegel.*
 KDD 2020.[paper](https://www.research-collection.ethz.ch/handle/20.500.11850/415267) [code](https://github.com/MathiasKraus/CascadeLSTM)
@@ -83,9 +72,11 @@ arXiv 2020. [paper](https://xovee.cn/archive/paper/arXiv_20_HDGNN_Xovee.pdf) [co
 *Sameera Horawalavithana, John Skvoretz, Adriana Iamnitchi.*
 arXiv 2020. [paper](https://arxiv.org/pdf/2004.12373.pdf)
 
-1. **Predicting Information Diffusion Cascades Using Graph Attention Networks**
+1. **Predicting Information Diffusion Cascades Using Graph Attention Networks** [paper](https://citationsy.com/archives/q?doi=10.1007/978-3-030-63820-7_12)
 *Meng Wang, and Kan Li*
 International Conference on Neural Information Processing (ICONIP), 2020, pp. 104-112
+
+Effective information cascade prediction plays a very important role in suppressing the spread of rumors in social networks and providing accurate social recommendations on social platforms. This paper improves existing models and proposes an end-to-end deep learning method called CasGAT. The method of graph attention network is designed to optimize the processing of large networks. After that, we only need to pay attention to the characteristics of neighbor nodes. Our approach greatly reduces the processing complexity of the model. We use realistic datasets to demonstrate the effectiveness of the model and compare the improved model with three baselines. Extensive results demonstrate that our model outperformed the three baselines in the prediction accuracy.
 
 1. **Popularity prediction on social platforms with coupled graph neural networks.**
 *Qi Cao, Huawei Shen, Jinhua Gao, Bingzheng Wei, Xueqi Cheng.*
