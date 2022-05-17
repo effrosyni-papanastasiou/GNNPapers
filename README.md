@@ -19,9 +19,9 @@ structure and modularity-based prior communities when computing embedding spaces
 - Method: embedding of cascade graph features in terms of diffusion, scale and temporal properties. Attention CNN mechanism that captures short-term variation over time on cascade graph size and merges the local features within a fixed window.Long Short Term Meomory (LSTM) over the attention CNN to learn the historical trend. Linear Regression (LR); Gradient Boosting Decision Tree (GBDT); CNN and LSTM.
 - Conclusion: time-series modeling and cascade graph embedding are able to complement each other to achieve better prediction results for real-time forwarding prediction.
 
-1. **Information Cascades Prediction With Graph Attention** Chen Zhihao, Wei Jingjing, Liang Shaobin, Cai Tiecheng, Liao Xiangwen, Frontiers in Physics, VOLUME=9, YEAR=2021, URL=https://www.frontiersin.org/article/10.3389/fphy.2021.739202, DOI=10.3389/fphy.2021.739202
+2. **Information Cascades Prediction With Graph Attention** Chen Zhihao, Wei Jingjing, Liang Shaobin, Cai Tiecheng, Liao Xiangwen, Frontiers in Physics, VOLUME=9, YEAR=2021, URL=https://www.frontiersin.org/article/10.3389/fphy.2021.739202, DOI=10.3389/fphy.2021.739202
 
-1. **Utilizing the simple graph convolutional neural network as a model for simulating influence spread in networks**
+3. **Utilizing the simple graph convolutional neural network as a model for simulating influence spread in networks**
 
 ## 2020
 
