@@ -1,8 +1,9 @@
 # Diffusion Prediction using Graph Neural Networks techniques
 
 ## 2022
-1. **Modularity-Aware Graph Autoencoders for community detection and link prediction ** Guillaume Salha-Galvan, Johannes Lutzeyer,
-Graph Autoencoders, Variational Graph Autoencoders
+1. **Modularity-Aware Graph Autoencoders for community detection and link prediction** 
+Guillaume Salha-Galvan, Johannes Lutzeyer
+
 - Goal: community detection + link prediction by considering both the initial graph
 structure and modularity-based prior communities when computing embedding spaces
 - Dataset:  Cora, Citeseer and Pubmed citation networks, graph generated from a stochastic block model, 
