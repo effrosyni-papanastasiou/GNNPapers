@@ -3,7 +3,9 @@
 ## 2022
 1. **Modularity-Aware Graph Autoencoders for community detection and link prediction ** Guillaume Salha-Galvan, Johannes Lutzeyer,
 Graph Autoencoders, Variational Graph Autoencoders
-
+- Goal: community detection + link prediction by considering both the initial graph
+structure and modularity-based prior communities when computing embedding spaces
+- Dataset:  Cora, Citeseer and Pubmed citation networks, graph generated from a stochastic block model, 
 
 ## 2021
 1. **Fully Exploiting Cascade Graphs for Real-time Forwarding Prediction Xiangyun**
@@ -38,7 +40,27 @@ ficulties inherent to blue the design of hand-crafted features.
 - Method: An attention mechanism, which consists of the intra-attention and inter-gate module, was designed to obtain
 and fuse the temporal and structural information learned from the observed period of the cascade. 
 Step 1: Input embedding. Cascade graph: set of cascade paths that are sampled through multiple random walk processes. Feed into a gated recurrent neural network to obtain the hidden representation. Each node in the sequence is represented as a one-hot vector, q ∈ RN , where N is the
-total number of nodes in G. Before we feed the one-hot vector into GRU, we first covert each of them into a low-dimensional dense vector x by a embedding matrix W x ∈ RH ×N : x = Wx q where H is an adjustable dimension of embedding.
+total number oIn the case of Task 2, we expect AMI and ARI scores to slightly decrease w.r.t. Task 1,
+as models will only observe incomplete versions of the graphs when learning embedding
+spaces. Task 2 will further assess whether empirically improving community detection
+inevitably leads to deteriorating the original good performances of GAE and VGAE
+models on link prediction. As our proposed Modularity-Inspired GAE and VGAE are
+designed for joint link prediction and community detection, we expect them to 1) reach
+comparable (or, ideally, identical) AUC/AP link prediction scores w.r.t. standard GAE
+and VGAE, while 2) reaching better community detection scores.
+4.1.3. Details on Models
+For the aforementioned evaluation tasks and graphs, we will compare the performances
+of our proposed Modularity-Aware GAE and VGAE models to standard GAE and VGAE
+and to several other baselines. All results reported below will verify d = 16, i.e., all
+node embedding models will learn embedding vectors zi of dimension 16. We also tested
+models with d ∈ {32, 64} by including them in our grid search space and reached similar
+conclusions to the d = 16 setting (we report and further discuss the impact of d in
+Section 4.2. Note, the dimension d is a selectable parameter in our public implementation,
+permitting direct model training on any node embedding dimension).
+Modularity-Aware GAE and VGAE. We trained two versions of our Modularity-Aware
+GAE and VGAE: one with the linear encoder described in Section 3.2.2, and one with the
+2-layer GCN encoder ( GCN(2)). The latter encoder includes a 32-dimensional hidden layer.
+We recall that link prediction is perfof nodes in G. Before we feed the one-hot vector into GRU, we first covert each of them into a low-dimensional dense vector x by a embedding matrix W x ∈ RH ×N : x = Wx q where H is an adjustable dimension of embedding.
 Step 2: feed the sequence into GRU to generate sequential hidden states. We
 adopt the bi-directional GRU where a forward GRU reads the sequence node by node, from left to right, and generates a sequence of forward hidden vectors . Similarly, a backward GRU reads from right to left, node by node and generates a sequence of backward hidden vectors [←− h k i ]. This encoder can be used to simulate the process of information flow during a diffusion. For the i-th node in the sequence, the updated hidden state is computed as the concatenation of the forward and back- ward hidden vectors:  
 step 3: extracting temporal representation.  Similarly, a backward GRU reads from right to left, node by node and generates a sequence of backward hidden vectors [←− h k i ]. This encoder can be used to simulate the process of information flow during a diffusion. For the i-th node in the sequence, the updated hidden state is computed as the concatenation of the forward and back- ward hidden vectors:
@@ -256,17 +278,7 @@ which a cascade starts its spread) or the user reaction times
 at the early stage of the cascade, as well as its momentum.
 As we shall empirically demonstrate in Section IV-A, this is
 a strong signal for potential virality.     
--    While several attempts towards this end exist, most
-of the current approaches rely on features extracted from the
-underlying network structure over which the content spreads.
-Recent studies have shown, however, that prediction can be
-effectively performed with very little structural information about
-the network, or even with no structural information at all.
-In this study we propose a novel network-agnostic approach
-called CAS2VEC, that models information cascades as time series
-and discretizes them using time slices. For the actual prediction
-task we have adopted a technique from the natural language
-processing community. 
+-    While several attempts towards this end exist, most of the current approaches rely on features extracted from the underlying network structure over which the content spreads. Recent studies have shown, however, that prediction can be effectively performed with very little structural information about the network, or even with no structural information at all. In this study we propose a novel network-agnostic approach called CAS2VEC, that models information cascades as time series and discretizes them using time slices. For the actual prediction task we have adopted a technique from the natural language processing community. 
 
 
 1. **A Variational Topological Neural Model for Cascade-based Diffusion in Networks.**
@@ -285,18 +297,7 @@ processing community.
 - Dataset:  Given a snapshot of a social network at time t0, denote it as G = (V, E) where V is the set of nodes and E ⊂ V × V is the set of edges. A node i ∈ V represents an actor (e.g., a user in Twitter or an author in the academic paper network) and an edge (i, j) ∈ E represents a relationship tie (e.g., retweeting or citation) between node i and j up to t0.
 One of the scenario is the cascade of Tweets on Twitter. cascades of Tweets (i.e., through retweeting) in June, 2016 from the official Decahose API (10% sample of the entire Tweet stream). As the follower/followee rela- tions are not available in the data and Twitter does not disclose the retweet paths, we follow existing work [30] and draw an edge from Twitter user A to B if either B retweeted a message of A or A men- tioned B in a Tweet. Comparing to a follower/followee network, this network structure accumulates all information cascades and reflects the truly active connections between Twitter users. We weigh an edge based on the number of retweeting/mentioning events be- tween the two users.
 ** []
-- Method: DeepCas, which first represents a cascade graph as a set of cas-
-cade paths that are sampled through multiple random walks pro-
-cesses. Such a representation not only preserves node identities
-but also bounds the loss of structural information. Analogically,
-cascade graphs are represented as documents, with nodes as words
-and paths as sentences. The challenge is how to sample the paths
-from a graph to assemble the “document,” which is also automatic
-learned through the end-to-end model to optimize the prediction of
-cascade growth. Once we have such a “document” assembled, deep
-learning techniques for text data could be applied in a similar way
-here. W
-- Conclusion: 
+- Method: DeepCas, which first represents a cascade graph as a set of cas- cade paths that are sampled through multiple random walks pro- cesses. Such a representation not only preserves node identities but also bounds the loss of structural information. Analogically, cascade graphs are represented as documents, with nodes as words and paths as sentences. The challenge is how to sample the paths from a graph to assemble the “document,” which is also automatic learned through the end-to-end model to optimize the prediction of cascade growth. Once we have such a “document” assembled, deep learning techniques for text data could be applied in a similar way here.
 
 1. **Topological recurrent neural network for diffusion prediction.**
 *Jia Wang, Vincent W Zheng, ZeminLiu, and Kevin Chen-Chuan Chang.*
@@ -310,12 +311,15 @@ here. W
 [paper](http://www.bigdatalab.ac.cn/~shenhuawei/publications/2017/cikm-cao.pdf)
 - Goal: predict retweet cascades of Sina Weibo and citation cascades of a longitudinal citation dataset.
 
-1. **Cascade dynamics modeling with attention-based recurrent neural network.**
+1.  <span style="color:blue">some *blue* text</span> **Cascade dynamics modeling with attention-based recurrent neural network.**
 *Yongqing Wang, Huawei Shen, Shenghua Liu, Jinhua Gao, and Xueqi Cheng.*
  IJCAI 2017.
 [paper](https://www.ijcai.org/proceedings/2017/0416.pdf)
- Goal: cascade prediction, 
-
+- Goal: modeling and predicting the cascades of resharing using sequential models (e.g., recurrent neural
+network, namely RNN) that do not require knowing the underlying diffusion model.  The objective of sequence modeling in cascade dynamics is to formulate the conditional probability of next resharing behavior p((tk+1, uk+1)|Hk
+- How: 1. attention-based RNN to capture the cross-dependence in cascade. 2. coverage strateg)y [Tu et al., 2016] to combat the misallocation of attention caused by the memoryless of traditional attention mechanism allowing alignments to better reflect the structure of propagation;.
+- Results: proposed models outperform state-of-the-art models at both cascade prediction and inferring diffusion tree
+- Data: - the input data is a collection of M cascades C = {Sm}M m=1. A cascade S = {(tk, uk)|uk ∈ U, tk [0, +∞) and k = 1, . . . , N } is a sequence of resharing behaviors ascendingly ordered by time, where U refers to user set in cascade. (tk, uk) pair of activation time and activated user.SYNTHETIC + REAL DATA
 
 
 
