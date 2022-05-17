@@ -311,7 +311,7 @@ One of the scenario is the cascade of Tweets on Twitter. cascades of Tweets (i.e
 [paper](http://www.bigdatalab.ac.cn/~shenhuawei/publications/2017/cikm-cao.pdf)
 - Goal: predict retweet cascades of Sina Weibo and citation cascades of a longitudinal citation dataset.
 
-1.  <span style="color:blue">some *blue* text</span> **Cascade dynamics modeling with attention-based recurrent neural network.**
+1.  [VERY SIMILAR] **Cascade dynamics modeling with attention-based recurrent neural network.**
 *Yongqing Wang, Huawei Shen, Shenghua Liu, Jinhua Gao, and Xueqi Cheng.*
  IJCAI 2017.
 [paper](https://www.ijcai.org/proceedings/2017/0416.pdf)
