@@ -48,6 +48,7 @@ models on link prediction. As our proposed Modularity-Inspired GAE and VGAE are
 designed for joint link prediction and community detection, we expect them to 1) reach
 comparable (or, ideally, identical) AUC/AP link prediction scores w.r.t. standard GAE
 and VGAE, while 2) reaching better community detection scores.
+
 4.1.3. Details on Models
 For the aforementioned evaluation tasks and graphs, we will compare the performances
 of our proposed Modularity-Aware GAE and VGAE models to standard GAE and VGAE
@@ -200,52 +201,26 @@ been investigated in several proposals . efinition 2: (Social Influence Embeddin
 
 - Dataset: . One is Digg, which contains information about stories displayed on the front page of Digg (digg.com) in June 2009 [25]. The Digg dataset comprises 68K users connected by 823K edges. The dataset also contains Digg votes, each of which records users’ voting on a particular story and the voting time. The other dataset is Flickr, which contains a friendship graph and a list of favorite marking records of the photo sharing social network (www.flickr.com) [26]. There are 162K users connected by 10M edges. The statistics of two datasets are stated in Table I. Each action contains the information of (user, item, time). We observe that the action data is very sparse. It is challenging to effectively learn social influence propagation parameters based on such sparse data.
 - 
-- Method: In social influence embedding, the propagation relationship
-between two users is modeled by the similarity between their
-vectors. Note that influence propagation is directed Given a user, we need to identify the users who are probably
-influenced by the user, which is called as influence context
-of the user. However, given a social network and a diffusion
-episode, we cannot exactly know the influence context. In
-addition, the social influence would spread in the social
-network, i.e., a user may influence other persons through
-the intermediate users. Furthermore, it is very important to
-incorporate similarity of user interest in the influence model,
-although it is challenging to incorporate such additional infor-
-mation. We next present our approach to generate the influence
-context, including local influence context and global similarity
-context. We utilize a random walk
-with restart process to model a user’s influence spread in the
-influence propagation network. This approach has two benefits.
-First, it can simulate the influence spread sequences, and thus
-high-order influence can be considered. Second, it can produce
-more influence pairs by additionally considering high-order
-influence. Hence we can alleviate the challenge caused by
-the sparsity of diffusion data. Note that A. Goyal et al. [21]
-utilize a similar strategy to solve sparsity issue. They propose
-a credit distribution model to assign influence in propagation
-network. However, they only exploit first-order and second-
-order influence propagation. With random walk process, our
-method can capture higher-order propagation.dom walk process reflects the local influence neigh-
-borhood. Given an influence propagation network Gi and a user
-u, we generate the influence context set Ci
-u , which contains
-the users that are probably influenced by user u. We utilize
-a random walk with restart strategy to generate Ci
-u. Starting
-from user u, it randomly chooses one neighbor to visit. Based
-on the currently visited user, it randomly samples one neighbor
-of this user to visit next. At each step, it has some probability
-to go back to user u (In our work, we set the restart ratio as
-0.5 by following default setting of the work [13]). To limit the
+- Method: In social influence embedding, the propagation relationship between two users is modeled by the similarity between their vectors. Note that influence propagation is directed Given a user, we need to identify the users who are probably influenced by the user, which is called as influence context of the user. However, given a social network and a diffusion episode, we cannot exactly know the influence context. In addition, the social influence would spread in the social network, i.e., a user may influence other persons through the intermediate users. Furthermore, it is very important to incorporate similarity of user interest in the influence model, although it is challenging to incorporate such additional infor- mation. We next present our approach to generate the influence context, including local influence context and global similarity context. We utilize a random walk with restart process to model a user’s influence spread in the influence propagation network. This approach has two benefits. First, it can simulate the influence spread sequences, and thus high-order influence can be considered. Second, it can produce more influence pairs by additionally considering high-order influence. Hence we can alleviate the challenge caused by the sparsity of diffusion data. Note that A. Goyal et al. [21] utilize a similar strategy to solve sparsity issue. They propose a credit distribution model to assign influence in propagation network. However, they only exploit first-order and second- order influence propagation. With random walk process, our method can capture higher-order propagation.dom walk process reflects the local influence neigh- borhood. Given an influence propagation network Gi and a user u, we generate the influence context set Ci u , which contains the users that are probably influenced by user u. We utilize a random walk with restart strategy to generate Ci u. Starting from user u, it randomly chooses one neighbor to visit. Based on the currently visited user, it randomly samples one neighbor of this user to visit next. At each step, it has some probability to go back to user u (In our work, we set the restart ratio as 0.5 by following default setting of the work [13]). 
 
-1. **A sequential neural information diffusion model with structure attention.**
+1. [IMPORTANT]  **A sequential neural information diffusion model with structure attention.**
 *Zhitao Wang, Chengyao Chen, and Wenjie Li.*
  CIKM 2018.[paper](https://dl.acm.org/doi/10.1145/3269206.3269275)
  
-1. **Attention network for information diffusion prediction.**
+ In this paper, we propose a novel sequential neural network with structure attention to model information diffusion. The proposed model explores both sequential nature of an information diffusion process and structural characteristics of user connection graph. The recurrent neural network framework is employed to model the sequential information. The attention mechanism is incorpo- rated to capture the structural dependency among users, which is defined as the diffusion context of a user. A gating mechanism is further developed to effectively integrate the sequential and structural information. The proposed model is evaluated on the diffusion prediction task. The performances on both synthetic and real datasets demonstrate its superiority over popular baselines and state-of-the-art sequence-based models.
+ 
+1. [IMPORTANT] **Attention network for information diffusion prediction.**
 *Zhitao Wang, Chengyao Chen, and Wenjie Li.*
  WWW 2018.
 [paper](https://dl.acm.org/citation.cfm?id=3186931)
+
+In this paper, we propose an attention network for diffusion pre-
+diction problem. The developed diffusion attention module can
+effectively explore the implicit user-to-user diffusion dependency
+among information cascade users. Besides, the user-to-cascade im-
+portance and the time-decay effect are captured and utilized by the
+model. The superiority of the proposed model over state-of-the-art
+methods is demonstrated by experiments on real diffusion data.
 
 1. **Learning sequential features for cascade outbreak prediction.**
 *Chengcheng Gou, Huawei Shen, Pan Du, Dayong Wu, Yue Liu, Xueqi Cheng.*
@@ -262,11 +237,6 @@ to go back to user u (In our work, we set the restart ratio as
  ISMIS 2018.
 [paper](https://link.springer.com/chapter/10.1007/978-3-030-01851-1_33)
 
-1. **Modeling Topical Information Diffusion over Microblog Networks.**
-*Kuntal Day, Hemank Lamba, Seema Nagar, Shubham Gupta, Saroj Kaushik.*
- International Conference on Complex Network and their Applications 2018.
-[paper](Ihttps://link.springer.com/chapter/10.1007/978-3-030-05411-3_29)
-
 1. **CAS2VEC: Network-Agnostic Cascade Prediction in Online Social Networks.**
 *Zekarias T. Kefato, Nasrullah Sheikh, Leila Bahri, Amira Soliman, Alberto Montresor, Sarunas Girdzijauskas.*
  SNAMS 2018.
@@ -280,12 +250,19 @@ As we shall empirically demonstrate in Section IV-A, this is
 a strong signal for potential virality.     
 -    While several attempts towards this end exist, most of the current approaches rely on features extracted from the underlying network structure over which the content spreads. Recent studies have shown, however, that prediction can be effectively performed with very little structural information about the network, or even with no structural information at all. In this study we propose a novel network-agnostic approach called CAS2VEC, that models information cascades as time series and discretizes them using time slices. For the actual prediction task we have adopted a technique from the natural language processing community. 
 
-
-1. **A Variational Topological Neural Model for Cascade-based Diffusion in Networks.**
+1. [VERY SIMILAR] **A Variational Topological Neural Model for Cascade-based Diffusion in Networks.**
 *Sylvain Lamprier.*
  arXiv 2018.
 [paper](https://arxiv.org/pdf/1812.10962.pdf)
-- Goal:
+- Goal: While some of them define graphical markovian models to extract temporal relationships between node infections in networks, others consider diffusion episodes as sequences of infections via recurrent neural models. In this paper we pro- pose a model at the crossroads of these two extremes, which embeds the history of diffusion in infected nodes as hidden continuous states. Depending on the trajectory followed by the content before reaching a given node, the distribution of influence probabilities may vary. Depending on the trajectory followed by the content before reaching a given node, the distribution of influence probabilities may vary. However, content trajectories are usually hidden in the data, which induces challenging learning problems. We propose a topological recurrent neu- ral model which exhibits good experimental performances for diffusion modelling and prediction.
+- How: The first bayesian topological RNN for sequences with tree dependencies, which we apply for diffusion cascades modelling. Rather than building on a preliminary random walk process, the idea is to consider trajectory inference during learning, in order to converge to better representations of the infected nodes. Following the stochastic nature of diffusion, the model infers trajectories distributions from observations of infections, which are in turn used for the inference of infection probabilities in an iterative learning process. Our probabilistic model, based on the famous continuous- time independent cascade model (CTIC) (Saito et al., 2009) is able to extract full paths of diffusion from sequential observations of infections via black-box inference, which has 2 multiple applications in the field
+
+n our model we consider that diffusion probabilities from any infected node v depend on a latent state associated to v, which embeds the past trajectory of the diffused content. This state depends on the state of the node u who first transmitted the content to v. Therefore, we need to rely on a continuous-time model such as CTIC (Saito et al., 2009), which serves as a basis for our work. In CTIC, two parameters are defined for each pair (u, v) of nodes in the network: ku,v ∈0; 1, which corresponds to the probability that node u succeeds in infecting v, and ru,v > 0, which corresponds to a time-delay parameter used in an exponential distribution when u infects v. If u succeeds in infecting v in an episode D, v is infected at time tD v = tD u + δ, where δ ∼ ru,v exp (−ru,v δ). These parameters are learned via maximizing the following likelihood on a set of episodes D
+
+Recurrent Neural Diffusion Model
+ach infected node v in an episode D owns a state zD v ∈ Rd depending on the path the content followed to reach v in D, with d the dimension of the representation space. Knowing the state zD u of the node u that first infected v, the state zD v is computed as: zD v = fφ(zD u , ω(f ) v ) (2) with fφ : Rd × Rd → Rd a function, with parameters φ, that transforms the state of u according to a shared representation ω(f ) v ∈ Rd of the node v. This function can either be an Elman RNN cell, a multi-layer perceptron (MLP) or a Gated Recurrent Unit (GRU). An LSTM could also be used here, but zD v should include both the cell and the state of v in that case
+
+
 
 ## 2017
 
@@ -293,25 +270,26 @@ a strong signal for potential virality.
 *C. Li, J. Ma, X. Guo, and Q. Mei.*
  WWW 2017.
 [paper](https://arxiv.org/pdf/1611.05373.pdf)
-- Goal: e future size of a cascade.
+- Goal: Future size of a cascade.
 - Dataset:  Given a snapshot of a social network at time t0, denote it as G = (V, E) where V is the set of nodes and E ⊂ V × V is the set of edges. A node i ∈ V represents an actor (e.g., a user in Twitter or an author in the academic paper network) and an edge (i, j) ∈ E represents a relationship tie (e.g., retweeting or citation) between node i and j up to t0.
 One of the scenario is the cascade of Tweets on Twitter. cascades of Tweets (i.e., through retweeting) in June, 2016 from the official Decahose API (10% sample of the entire Tweet stream). As the follower/followee rela- tions are not available in the data and Twitter does not disclose the retweet paths, we follow existing work [30] and draw an edge from Twitter user A to B if either B retweeted a message of A or A men- tioned B in a Tweet. Comparing to a follower/followee network, this network structure accumulates all information cascades and reflects the truly active connections between Twitter users. We weigh an edge based on the number of retweeting/mentioning events be- tween the two users.
 ** []
-- Method: DeepCas, which first represents a cascade graph as a set of cas- cade paths that are sampled through multiple random walks pro- cesses. Such a representation not only preserves node identities but also bounds the loss of structural information. Analogically, cascade graphs are represented as documents, with nodes as words and paths as sentences. The challenge is how to sample the paths from a graph to assemble the “document,” which is also automatic learned through the end-to-end model to optimize the prediction of cascade growth. Once we have such a “document” assembled, deep learning techniques for text data could be applied in a similar way here.
+- Method: Represents a cascade graph as a set of cas- cade paths that are sampled through multiple random walks processes. Such epresentation preserves node identities and bounds the loss of structural information. Analogically, cascade graphs are represented as documents, with nodes as words and paths as sentences. The challenge is how to sample the paths from a graph to assemble the “document,” which is also automatic learned through the end-to-end model to optimize the prediction of cascade growth. Once we have such a “document” assembled, deep learning techniques for text data could be applied in a similar way here.
 
-1. **Topological recurrent neural network for diffusion prediction.**
+2. **Topological recurrent neural network for diffusion prediction.**
 *Jia Wang, Vincent W Zheng, ZeminLiu, and Kevin Chen-Chuan Chang.*
  ICDM 2017.
 [paper](https://arxiv.org/pdf/1711.10162.pdf)
 - Goal: estimating the probability of an inactive node to be activated next in a cascade.
 
-1. **DeepHawkes: Bridging the gap between prediction and understanding of information cascades.**
+3. **DeepHawkes: Bridging the gap between prediction and understanding of information cascades.**
 *Qi Cao, Huawei Shen, Keting Cen, Wentao Ouyang, and Xueqi Cheng.*
  CIKM 2017.
-[paper](http://www.bigdatalab.ac.cn/~shenhuawei/publications/2017/cikm-cao.pdf)
-- Goal: predict retweet cascades of Sina Weibo and citation cascades of a longitudinal citation dataset.
+[paper](https://dl.acm.org/doi/pdf/10.1145/3132847.3132973)
+- Goal: predicting the size of retweet cascades in Sina Weibo and predicting the citation of papers in APS.
+- How: captures and extends the three interpretable factors of Hawkes process under deep learning framework, i.e., influence of users, self-exciting mechanism of each retweet and the time decay effect in information diffusion.learning user embeddings as the influence representation of users by the guide of future popularity is useful in popularity prediction. considering the entire retweet path through GRU structure instead of only considering the current retweet user in Hawkes process can significantly improve the prediction per- formance. In addition, the DeepHawkes model is flexible to learn the time decay effect using the proposed non-parametric way with- out prior domain knowledge. 
 
-1.  [VERY SIMILAR] **Cascade dynamics modeling with attention-based recurrent neural network.**
+4.  [VERY SIMILAR] **Cascade dynamics modeling with attention-based recurrent neural network.**
 *Yongqing Wang, Huawei Shen, Shenghua Liu, Jinhua Gao, and Xueqi Cheng.*
  IJCAI 2017.
 [paper](https://www.ijcai.org/proceedings/2017/0416.pdf)
