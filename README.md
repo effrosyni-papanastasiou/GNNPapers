@@ -9,6 +9,9 @@ structure and modularity-based prior communities when computing embedding spaces
 - Dataset:  Cora, Citeseer and Pubmed citation networks, graph generated from a stochastic block model, 
 
 ## 2021
+
+0. [KALO] **Full-Scale Information Diffusion Prediction With Reinforced Recurrent Networks**
+
 1. **Fully Exploiting Cascade Graphs for Real-time Forwarding Prediction Xiangyun**
 *Xiangyun Tang, Dongliang Liao, Weijie Huang, Liehuang Zhu, Meng Shen, and Jin Xu*. AAAI, 2021, pp.582-590. [paper](https://www.aaai.org/AAAI21Papers/AAAI-5502.TangX.pdf)
 
