@@ -34,6 +34,10 @@ structure and modularity-based prior communities when computing embedding spaces
 
 ## 2020
 
+1. [kalo] NEURIPS **Variational Inference for Graph Convolutional
+Networks in the Absence of Graph Data and
+Adversarial Settings** [paper](https://proceedings.neurips.cc//paper/2020/file/d882050bb9eeba930974f596931be527-Paper.pdf)
+
 1. **Inf-VAE: A Variational Autoencoder Framework to Integrate Homophily and Influence in Diffusion Prediction.**
 *Aravind Sankar, Xinyang Zhang, Adit Krishnan, Jiawei Han.*
 WSDM 2020.[paper](https://arxiv.org/pdf/2001.00132.pdf)
