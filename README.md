@@ -1,6 +1,8 @@
 # Diffusion Prediction using Graph Neural Networks techniques
 
 ## 2022
+1. **Reverse Graph Learning for Graph Neural Network**
+
 1. **Modularity-Aware Graph Autoencoders for community detection and link prediction** 
 Guillaume Salha-Galvan, Johannes Lutzeyer
 
