@@ -158,6 +158,8 @@ IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
 
 ## 2018
 
+1. REALLY SIMILAR] Bayesian graph convolutional neural networks for semi-supervised classification [paper](https://ojs.aaai.org/index.php/AAAI/article/download/4531/4409)
+
 1. **DeepInf: Social Influence Prediction with Deep Learning.**
 *Jiezhong Qiu, Jian Tang, Hao Ma, Yuxiao Dong, Kuansan Wang, Jie Tang.*
  KDD 2018.
