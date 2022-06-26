@@ -14,6 +14,14 @@ structure and modularity-based prior communities when computing embedding spaces
 
 0. [KALO] **Full-Scale Information Diffusion Prediction With Reinforced Recurrent Networks**
 
+1. A review of uncertainty quantification in deep learning: Techniques,
+applications and challenges [paper](https://reader.elsevier.com/reader/sd/pii/S1566253521001081?token=C014E104031323AED2EEE7C5A4135636E765AA67D63AA1967F7CE7C735A6E30C12E4C1D00BCD6D9A144150336032B56F&originRegion=eu-west-1&originCreation=20220626145444)
+
+1.Reverse Graph Learning for Graph Neural Network[paper](https://ieeexplore.ieee.org/abstract/document/9749776)
+
+1. Graph Posterior Network: Bayesian Predictive
+Uncertainty for Node Classification[paper](https://proceedings.neurips.cc/paper/2021/file/95b431e51fc53692913da5263c214162-Paper.pdf)
+
 1. **Fully Exploiting Cascade Graphs for Real-time Forwarding Prediction Xiangyun**
 *Xiangyun Tang, Dongliang Liao, Weijie Huang, Liehuang Zhu, Meng Shen, and Jin Xu*. AAAI, 2021, pp.582-590. [paper](https://www.aaai.org/AAAI21Papers/AAAI-5502.TangX.pdf)
 
