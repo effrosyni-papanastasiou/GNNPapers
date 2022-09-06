@@ -7,4 +7,4 @@ Undirected graphs with GCN encoder + inner product encoder. It incorporates node
 # 2. Variational Auto-Encoders
 * [tutorial](https://arxiv.org/pdf/1606.05908.pdf)
 * [tutorial2](https://towardsdatascience.com/tutorial-on-variational-graph-auto-encoders-da9333281129)
-Main idea: The main idea of a variational autoencoder is that it embeds the input X to a distribution rather than a point. And then a random sample Z is taken from the distribution rather than generated from encoder directly.
+* Main idea: The main idea of a variational autoencoder is that it embeds the input X to a distribution rather than a point. And then a random sample Z is taken from the distribution rather than generated from encoder directly.
