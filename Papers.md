@@ -4,5 +4,6 @@ For link prediction in citation networks.
 It makes use of latent variables and learns latent rerpresentations for an undirected graph. 
 Undirected graphs with GCN encoder + inner product encoder. It incorporates node features. 
 
-#2. Variational Auto-Encoders
+# 2. Variational Auto-Encoders
+[tutorial](Tutorial on Variational Autoencoders)
 Main idea: The main idea of a variational autoencoder is that it embeds the input X to a distribution rather than a point. And then a random sample Z is taken from the distribution rather than generated from encoder directly.
