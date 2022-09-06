@@ -5,5 +5,6 @@ It makes use of latent variables and learns latent rerpresentations for an undir
 Undirected graphs with GCN encoder + inner product encoder. It incorporates node features. 
 
 # 2. Variational Auto-Encoders
-[tutorial](Tutorial on Variational Autoencoders)
+[tutorial](https://arxiv.org/pdf/1606.05908.pdf)
+[tutorial2](https://towardsdatascience.com/tutorial-on-variational-graph-auto-encoders-da9333281129)
 Main idea: The main idea of a variational autoencoder is that it embeds the input X to a distribution rather than a point. And then a random sample Z is taken from the distribution rather than generated from encoder directly.
